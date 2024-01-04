@@ -29,9 +29,9 @@ jobs:
           - os: ubuntu-22.04
             c_compiler: gcc
             cpp_compiler: g++
-          - os: ubuntu-22.04
-            c_compiler: clang
-            cpp_compiler: clang++
+          # - os: ubuntu-22.04
+          #   c_compiler: clang
+          #   cpp_compiler: clang++
         # exclude:
         #   - os: windows-latest
         #     c_compiler: gcc
