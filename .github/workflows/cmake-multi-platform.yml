@@ -20,7 +20,7 @@ jobs:
       matrix:
         os: [ubuntu-22.04, windows-2022]
         build_type: [Debug, Release]
-        c_compiler: [gcc, c1] # , clang]
+        c_compiler: [gcc, clang, c1]
         cmake_generator: [Ninja, Unix Makefiles]
         include:
           - os: windows-2022
