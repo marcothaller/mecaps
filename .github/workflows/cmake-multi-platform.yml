@@ -58,7 +58,17 @@ jobs:
 
     - name: Install dependencies (Linux)
       if: runner.os == 'Linux'
-      run: sudo apt install ninja-build build-essential cmake git libxkbcommon-dev libxcb-xkb-dev libxkbcommon-x11-dev wayland-scanner++ wayland-protocols libwayland-dev libmosquittopp-dev
+      run: |
+        sudo apt update
+        sudo apt install ninja-build
+        sudo apt install -y \
+          libxkbcommon-dev \
+          libxcb-xkb-dev \
+          libxkbcommon-x11-dev \
+          wayland-scanner++ \
+          wayland-protocols \
+          libwayland-dev \
+          libmosquittopp-dev
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
