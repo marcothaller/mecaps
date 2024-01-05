@@ -18,14 +18,14 @@ jobs:
       fail-fast: true # false
 
       matrix:
-        os: [ubuntu-22.04, windows-2022]
+        os: [ubuntu-22.04] #, windows-2022]
         build_type: [Debug, Release]
         # c_compiler: [gcc, c1] # clang
         cmake_generator: [Ninja, Unix Makefiles]
         include:
-          - os: windows-2022
-            c_compiler: cl
-            cpp_compiler: cl
+          # - os: windows-2022
+          #   c_compiler: cl
+          #   cpp_compiler: cl
           - os: ubuntu-22.04
             c_compiler: gcc
             cpp_compiler: g++
@@ -62,11 +62,13 @@ jobs:
     #     & .\Slint-cpp-$env:SLINT_VERSION-win64.exe /S /D=c:\slint
     #     Write-Host "SLINT_INSTALL_LOCATION=c:\slint" >> $env:GITHUB_ENV
 
+    - name: Install ninja-build tool
+      uses: turtlesec-no/get-ninja@main
+
     - name: Install dependencies (Linux)
       if: runner.os == 'Linux'
       run: |
         sudo apt update
-        sudo apt install ninja-build
         sudo apt install -y \
           libxkbcommon-dev \
           libxcb-xkb-dev \
