@@ -14,8 +14,10 @@ if (NOT TARGET CURL::libcurl)
 
     # Force libcurl to be built as shared library despite global BUILD_SHARED_LIBS setting
     # this is necessary to be able to link faked functions to test executable
-    option(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries" FORCE)
-    option(BUILD_STATIC_LIBS OFF CACHE BOOL "Build static libraries" FORCE)
+    option(BUILD_SHARED_LIBS_CURL ON CACHE BOOL "Build shared libraries" FORCE)
+    option(BUILD_STATIC_LIBS_CURL OFF CACHE BOOL "Build static libraries" FORCE)
+    set_target_properties(libcurl PROPERTIES BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS_CURL})
+    set_target_properties(libcurl PROPERTIES BUILD_STATIC_LIBS ${BUILD_STATIC_LIBS_CURL})
 
     if (WIN32)
         set(CURL_USE_SCHANNEL ON CACHE BOOL "Use schannel to build libcurl" FORCE)
