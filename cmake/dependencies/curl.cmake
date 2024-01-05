@@ -12,8 +12,8 @@ if (NOT TARGET CURL::libcurl)
     set(BUILD_TESTING OFF CACHE BOOL "Turn off testing" FORCE)
     set(BUILD_CURL_EXE OFF CACHE BOOL "Turn off curl executable" FORCE)
 
-    // Force libcurl to be built as shared library despite global BUILD_SHARED_LIBS setting
-    // this is necessary to be able to link faked functions to test executable
+    # Force libcurl to be built as shared library despite global BUILD_SHARED_LIBS setting
+    # this is necessary to be able to link faked functions to test executable
     option(BUILD_SHARED_LIBS ON CACHE BOOL "Build shared libraries" FORCE)
     option(BUILD_STATIC_LIBS OFF CACHE BOOL "Build static libraries" FORCE)
 
