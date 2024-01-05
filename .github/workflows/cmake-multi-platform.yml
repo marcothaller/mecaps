@@ -111,6 +111,9 @@ jobs:
         -G Ninja
         -S .
         -DCMAKE_BUILD_TYPE=Debug
+        -DKDUTILS_BUILD_TESTS=true
+        -DBUILD_SHARED_LIBS=
+        -DCMAKE_PREFIX_PATH=
 
     - name: Build
       # Build your program with the given configuration. Note that --config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
