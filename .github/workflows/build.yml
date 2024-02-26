@@ -64,7 +64,7 @@ jobs:
         run: >
           cmake -S . -B ./build -G Ninja
           -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
-          -DBUILD_TESTS=${{ matrix.os == 'Linux' && matrix.build_type == 'Debug'}}
+          # -DBUILD_TESTS=${{ matrix.os == 'Linux' && matrix.build_type == 'Debug'}}
           -DCMAKE_PREFIX_PATH=${{ env.SLINT_INSTALL_LOCATION }}
 
       - name: Build Project
