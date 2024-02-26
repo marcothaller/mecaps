@@ -1,7 +1,9 @@
 #pragma once
 
 #include "app_window.h"
+#ifdef CURL_AVAILABLE
 #include "network_access_manager.h"
+#endif
 #include "slint.h"
 
 class ApplicationEngine
