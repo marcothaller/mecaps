@@ -22,8 +22,10 @@ class ApplicationEngine
 
   private:
 	static void InitCounterDemo(const CounterSingleton &uiPageCounter);
+#ifdef CURL_AVAILABLE
 	static void InitHttpDemo(const HttpSingleton &httpSingleton, const INetworkAccessManager &networkAccessManager);
 	static void InitFtpDemo(const FtpSingleton &ftpSingleton, const INetworkAccessManager &networkAccessManager);
+#endif
 	static void InitMqttDemo(const MqttSingleton &mqttSingleton);
 	static void DeinitMqttDemo();
 };
