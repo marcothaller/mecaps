@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 option(BUILD_DEMO_UI "Build Demo UI" ON)
-option(BUILD_INTEGRATION_CURL "Build Curl Integration" ON)
+option(BUILD_INTEGRATION_CURL "Build Curl Integration" OFF)
 option(BUILD_INTEGRATION_KDGUI_SLINT "Build KDGui/Slint Integration" ON)
 option(BUILD_INTEGRATION_MQTT "Build MQTT Integration" ON) # this will be overriden in dependencies.cmake for now
 option(BUILD_TESTS "Build Tests" ON)
