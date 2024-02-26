@@ -53,9 +53,9 @@ void ApplicationEngine::InitCounterDemo(const CounterSingleton &uiPageCounter)
 	uiPageCounter.on_request_increase_value(incrementCounterValue);
 }
 
+#ifdef CURL_AVAILABLE
 void ApplicationEngine::InitHttpDemo(const HttpSingleton &httpSingleton, const INetworkAccessManager &networkAccessManager)
 {
-#ifdef CURL_AVAILABLE
 	httpSingleton.set_url("https://example.com");
 	auto startHttpQuery = [&]() {
 		const auto url = Url(httpSingleton.get_url().data());
@@ -73,12 +73,12 @@ void ApplicationEngine::InitHttpDemo(const HttpSingleton &httpSingleton, const I
 		networkAccessManager.registerTransfer(*httpTransfer);
 	};
 	httpSingleton.on_request_http_query(startHttpQuery);
-#endif
 }
+#endif
 
+#ifdef CURL_AVAILABLE
 void ApplicationEngine::InitFtpDemo(const FtpSingleton &ftpSingleton, const INetworkAccessManager &networkAccessManager)
 {
-#ifdef CURL_AVAILABLE
 	static File ftpFile = File("ls-lR.gz");
 	ftpSingleton.set_url_download("ftp://ftp-stud.hs-esslingen.de/debian/ls-lR.gz");
 	ftpSingleton.set_url_upload("ftp://ftp.cs.brown.edu/incoming/ls-lR.gz");
@@ -120,8 +120,8 @@ void ApplicationEngine::InitFtpDemo(const FtpSingleton &ftpSingleton, const INet
 		ftpSingleton.set_is_uploading(true);
 	};
 	ftpSingleton.on_request_ftp_upload(startFtpUpload);
-#endif
 }
+#endif
 
 void ApplicationEngine::InitMqttDemo(const MqttSingleton &mqttSingleton)
 {
